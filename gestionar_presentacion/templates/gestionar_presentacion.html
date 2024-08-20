@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Presentaciones</h2>
+
+<a href="{% url 'añadir_presentacion' %}" class="btn btn-primary mb-3">Añadir Presentación</a>
+
+<div class="mb-3">
+    <h3>Consultar Presentación</h3>
+    <form method="post" action="{% url 'consultar_presentacion' %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre de Presentación">
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio de Venta</th>
+            <th>Precio de Compra</th>
+            <th>Cantidad en Stock</th>
+            <th>Unidades por Paquete</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for presentacion in presentaciones %}
+        <tr>
+            <td>{{ presentacion.id }}</td>
+            <td>{{ presentacion.nombre }}</td>
+            <td>{{ presentacion.precio_venta }}</td>
+            <td>{{ presentacion.precio_compra }}</td>
+            <td>{{ presentacion.cantidad_Stock }}</td>
+            <td>{{ presentacion.unidades_Paquete }}</td>
+            <td>{{ presentacion.estado|yesno:"Activo,Inactivo" }}</td>
+            <td>
+                <a href="{% url 'editar_presentacion' presentacion.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'activar_inactivar_presentacion' presentacion.id %}" class="btn btn-sm btn-secondary">
+                    {% if presentacion.estado %}Inactivar{% else %}Activar{% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

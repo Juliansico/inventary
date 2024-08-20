@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Marcas</h2>
+
+<a href="{% url 'añadir_marca' %}" class="btn btn-primary mb-3">Añadir Marca</a>
+
+<div class="mb-3">
+    <h3>Consultar Marca</h3>
+    <form method="post" action="{% url 'consultar_marca' %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre de Marca">
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Logo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for marca in marcas %}
+        <tr>
+            <td>{{ marca.id }}</td>
+            <td>{{ marca.nombre }}</td>
+            <td>
+                {% if marca.logoTipo %}
+                <img src="{{ marca.logoTipo.url }}" alt="{{ marca.nombre }}" style="width: 50px; height: 50px;">
+                {% else %}
+                Sin logo
+                {% endif %}
+            </td>
+            <td>{{ marca.estado|yesno:"Activo,Inactivo" }}</td>
+            <td>
+                <a href="{% url 'editar_marca' marca.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'activar_inactivar_marca' marca.id %}" class="btn btn-sm btn-secondary">
+                    {% if marca.estado %}Inactivar{% else %}Activar{% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

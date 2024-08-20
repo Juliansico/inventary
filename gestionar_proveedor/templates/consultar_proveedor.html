@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Consultar Proveedor</h2>
+    {% if proveedor %}
+        <table class="table">
+            <tr>
+                <th>ID:</th>
+                <td>{{ proveedor.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre:</th>
+                <td>{{ proveedor.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Dirección:</th>
+                <td>{{ proveedor.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Teléfono:</th>
+                <td>{{ proveedor.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ proveedor.email }}</td>
+            </tr>
+            <tr>
+                <th>Producto:</th>
+                <td>{{ proveedor.producto }}</td>
+            </tr>
+            <tr>
+                <th>Estado:</th>
+                <td>{{ proveedor.estado|yesno:"Activo,Inactivo" }}</td>
+            </tr>
+        </table>
+        <a href="{% url 'editar_proveedor' proveedor.id %}" class="btn btn-primary">Editar</a>
+    {% else %}
+        <p>No se encontró ningún proveedor con ese nombre.</p>
+    {% endif %}
+    <a href="{% url 'gestionar_proveedor' %}" class="btn btn-secondary mt-3">Volver</a>
+</div>
+{% endblock %}

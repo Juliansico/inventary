@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Categorías</h2>
+
+<a href="{% url 'añadir_categoria' %}" class="btn btn-primary mb-3">Añadir Categoría</a>
+
+<div class="mb-3">
+    <h3>Consultar Categoría</h3>
+    <form method="post" action="{% url 'consultar_categoria' %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre de categoría">
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nombre }}</td>
+            <td>{{ categoria.estado|yesno:"Activo,Inactivo" }}</td>
+            <td>
+                <a href="{% url 'editar_categoria' categoria.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'activar_inactivar_categoria' categoria.id %}" class="btn btn-sm btn-secondary">
+                    {% if categoria.estado %}Desactivar{% else %}Activar{% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

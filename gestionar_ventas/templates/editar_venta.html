@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Venta</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Actualizar Venta</button>
+    <a href="{% url 'gestionar_ventas' %}" class="btn btn-secondary mt-3">Volver</a>
+</form>
+{% endblock %}

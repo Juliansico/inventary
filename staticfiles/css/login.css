@@ -1,0 +1,142 @@
+/* Estilos base */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('static/img/fondo.jpeg'); /* Cambia esto con la ruta correcta de tu imagen */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo del contenedor de login */
+.login-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 600px;
+    background-color: rgb(255, 255, 255); /* Fondo con opacidad para ver el fondo detrás */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo {
+    max-width: 200px; /* Aumenta el tamaño máximo del logo */
+    margin-bottom: 30px;
+    align-self: center;
+}
+
+/* Formulario */
+.login-form {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 87%;
+    padding: 15px 15px 15px 40px; /* Espacio adicional para los íconos */
+    border: 1.5px solid #333;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: #f1f1f1;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+/* Botones */
+.btn-login {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background-color: #000000;
+}
+
+/* Enlaces adicionales */
+.additional-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.additional-links a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Imagen del login */
+.login-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 20px 20px 0; /* Ajusta los bordes redondeados del contenedor de imagen */
+}
+
+.full-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo para resaltar el texto */
+}
+
+
+/* Placeholders */
+::placeholder {
+    font-family: 'Roboto', sans-serif;
+    color: #aaa;
+}

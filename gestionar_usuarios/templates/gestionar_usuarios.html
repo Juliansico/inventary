@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Usuarios</h2>
+
+<a href="{% url 'añadir_usuario' %}" class="btn btn-primary mb-3">Añadir Usuario</a>
+
+<div class="mb-3">
+    <h3>Consultar Usuario</h3>
+    <form method="post" action="{% url 'consultar_usuario' %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="documento" class="form-control" placeholder="Número de documento">
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Documento</th>
+            <th>Teléfono</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apellido }}</td>
+            <td>{{ usuario.correo }}</td>
+            <td>{{ usuario.documento }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.rol_usuario }}</td>
+            <td>{{ usuario.estado|yesno:"Activo,Inactivo" }}</td>
+            <td>
+                <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'activar_inactivar_usuario' usuario.id %}" class="btn btn-sm btn-secondary">
+                    {% if usuario.estado %}Desactivar{% else %}Activar{% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

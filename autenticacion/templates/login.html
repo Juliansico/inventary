@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Samsamana</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <img src="{% static 'img/Samsamanalogo1PNG.png' %}" alt="Samsamana Logo" class="logo">
+            <h2>Iniciar Sesion</h2>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn-login">Iniciar sesión</button>
+            </form>
+            <div class="additional-links">
+                <a href="{% url 'recuperar_contrasena' %}">¿Olvidaste tu contraseña?</a>
+                <p>¿No tienes una cuenta? <a href="{% url 'registrar' %}">Crear nueva cuenta</a></p>
+            </div>
+        </div>
+        <div class="login-image">
+            <div class="overlay"></div>
+            <img src="{% static 'img/balneario.jpg' %}" alt="Imagen de fondo" class="full-background-image">
+            <div class="image-text">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

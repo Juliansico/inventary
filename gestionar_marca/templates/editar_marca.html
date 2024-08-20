@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Marca</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Actualizar Marca</button>
+</form>
+<a href="{% url 'gestionar_marca' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}

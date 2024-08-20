@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Gestionar Proveedores</h2>
+
+<a href="{% url 'añadir_proveedor' %}" class="btn btn-primary mb-3">Añadir Proveedor</a>
+
+<div class="mb-3">
+    <h3>Consultar Proveedor</h3>
+    <form method="post" action="{% url 'consultar_proveedor' %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre del Proveedor">
+            <button type="submit" class="btn btn-secondary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Producto</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{ proveedor.id }}</td>
+            <td>{{ proveedor.nombre }}</td>
+            <td>{{ proveedor.telefono }}</td>
+            <td>{{ proveedor.email }}</td>
+            <td>{{ proveedor.producto }}</td>
+            <td>{{ proveedor.estado|yesno:"Activo,Inactivo" }}</td>
+            <td>
+                <a href="{% url 'editar_proveedor' proveedor.id %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'activar_inactivar_proveedor' proveedor.id %}" class="btn btn-sm btn-secondary">
+                    {% if proveedor.estado %}Inactivar{% else %}Activar{% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
