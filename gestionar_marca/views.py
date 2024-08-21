@@ -73,3 +73,15 @@ def consultar_marca(request):
         else:
             messages.error(request, 'Marca no encontrada.')
     return render(request, 'consultar_marca.html')
+
+@login_required
+def eliminar_marca(request, marca_id):
+    marca = get_object_or_404(Marca, id=marca_id)
+    if request.method == 'POST':
+        marca.delete()
+        messages.success(request, 'Marca eliminada exitosamente.')
+        return redirect('gestionar_marca')  
+
+    return render(request, 'confirmar_eliminacion_marca.html', {'marca': marca})
+
+

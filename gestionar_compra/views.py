@@ -49,9 +49,9 @@ def editar_compra(request, compra_id):
 @login_required
 def activar_inactivar_compra(request, compra_id):
     compra = get_object_or_404(Compra, id=compra_id)
-    compra.estadoCompra = 'Inactiva' if compra.estadoCompra == 'Activa' else 'Activa'
+    compra.estado = not compra.estado  
     compra.save()
-    messages.success(request, f'Compra {compra.estadoCompra.lower()} con éxito.')
+    messages.success(request, f'Compra { compra.estado == True:} con éxito.')
     return redirect('gestionar_compra')
 
 
@@ -76,3 +76,15 @@ def consultar_compra(request):
         
         return render(request, 'consultar_compra.html', {'compras': compras})
     return render(request, 'consultar_compra.html')
+
+
+@login_required
+def eliminar_compra(request, compra_id):
+    compra = get_object_or_404(Compra, id=compra_id)
+    if request.method == 'POST':
+        compra.delete()
+        messages.success(request, 'Compra eliminada exitosamente.')
+        return redirect('gestionar_compra')  
+
+    return render(request, 'confirmar_eliminacion_compra.html', {'compra': compra})
+

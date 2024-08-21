@@ -76,3 +76,14 @@ def consultar_categoria(request):
         else:
             messages.error(request, 'Categoría no encontrada.')
     return render(request, 'consultar_categoria.html')
+
+@login_required
+def eliminar_categoria(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+    if request.method == 'POST':
+        categoria.delete()
+        messages.success(request, 'Categoria eliminada exitosamente.')
+        return redirect('gestionar_categoria')  
+
+    return render(request, 'confirmar_eliminacion_categoria.html', {'categoria': categoria})
+
