@@ -168,7 +168,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2024-08-18 16:13:22.278682'),(2,'contenttypes','0002_remove_content_type_name','2024-08-18 16:13:22.391370'),(3,'auth','0001_initial','2024-08-18 16:13:22.732377'),(4,'auth','0002_alter_permission_name_max_length','2024-08-18 16:13:22.809939'),(5,'auth','0003_alter_user_email_max_length','2024-08-18 16:13:22.817287'),(6,'auth','0004_alter_user_username_opts','2024-08-18 16:13:22.823100'),(7,'auth','0005_alter_user_last_login_null','2024-08-18 16:13:22.832215'),(8,'auth','0006_require_contenttypes_0002','2024-08-18 16:13:22.835317'),(9,'auth','0007_alter_validators_add_error_messages','2024-08-18 16:13:22.842103'),(10,'auth','0008_alter_user_username_max_length','2024-08-18 16:13:22.848857'),(11,'auth','0009_alter_user_last_name_max_length','2024-08-18 16:13:22.854754'),(12,'auth','0010_alter_group_name_max_length','2024-08-18 16:13:22.868983'),(13,'auth','0011_update_proxy_permissions','2024-08-18 16:13:22.881917'),(14,'auth','0012_alter_user_first_name_max_length','2024-08-18 16:13:22.887465'),(15,'gestionar_usuarios','0001_initial','2024-08-18 16:13:23.422377'),(16,'admin','0001_initial','2024-08-18 16:13:23.618863'),(17,'admin','0002_logentry_remove_auto_add','2024-08-18 16:13:23.628626'),(18,'admin','0003_logentry_add_action_flag_choices','2024-08-18 16:13:23.639271'),(19,'gestionar_categoria','0001_initial','2024-08-18 16:13:23.661030'),(20,'gestionar_proveedor','0001_initial','2024-08-18 16:13:23.685260'),(21,'gestionar_presentacion','0001_initial','2024-08-18 16:13:23.702245'),(22,'gestionar_marca','0001_initial','2024-08-18 16:13:23.727631'),(23,'gestionar_productos','0001_initial','2024-08-18 16:13:23.958619'),(24,'gestionar_compra','0001_initial','2024-08-18 16:13:24.204044'),(25,'gestionar_respaldo','0001_initial','2024-08-18 16:13:24.225127'),(26,'gestionar_ventas','0001_initial','2024-08-18 16:13:24.473902'),(27,'sessions','0001_initial','2024-08-18 16:13:24.512381');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2024-08-25 03:10:00.620471'),(2,'contenttypes','0002_remove_content_type_name','2024-08-25 03:10:00.693384'),(3,'auth','0001_initial','2024-08-25 03:10:00.988690'),(4,'auth','0002_alter_permission_name_max_length','2024-08-25 03:10:01.054850'),(5,'auth','0003_alter_user_email_max_length','2024-08-25 03:10:01.060519'),(6,'auth','0004_alter_user_username_opts','2024-08-25 03:10:01.067531'),(7,'auth','0005_alter_user_last_login_null','2024-08-25 03:10:01.075071'),(8,'auth','0006_require_contenttypes_0002','2024-08-25 03:10:01.078553'),(9,'auth','0007_alter_validators_add_error_messages','2024-08-25 03:10:01.084261'),(10,'auth','0008_alter_user_username_max_length','2024-08-25 03:10:01.091710'),(11,'auth','0009_alter_user_last_name_max_length','2024-08-25 03:10:01.098616'),(12,'auth','0010_alter_group_name_max_length','2024-08-25 03:10:01.143926'),(13,'auth','0011_update_proxy_permissions','2024-08-25 03:10:01.153530'),(14,'auth','0012_alter_user_first_name_max_length','2024-08-25 03:10:01.160338'),(15,'gestionar_usuarios','0001_initial','2024-08-25 03:10:01.518661'),(16,'admin','0001_initial','2024-08-25 03:10:01.681510'),(17,'admin','0002_logentry_remove_auto_add','2024-08-25 03:10:01.690429'),(18,'admin','0003_logentry_add_action_flag_choices','2024-08-25 03:10:01.705456'),(19,'gestionar_categoria','0001_initial','2024-08-25 03:10:01.728498'),(20,'gestionar_presentacion','0001_initial','2024-08-25 03:10:01.757217'),(21,'gestionar_marca','0001_initial','2024-08-25 03:10:01.780311'),(22,'gestionar_productos','0001_initial','2024-08-25 03:10:02.030297'),(23,'gestionar_proveedor','0001_initial','2024-08-25 03:10:02.050506'),(24,'gestionar_compra','0001_initial','2024-08-25 03:10:02.304808'),(25,'gestionar_compra','0002_alter_compra_productos','2024-08-25 03:10:02.319258'),(26,'gestionar_respaldo','0001_initial','2024-08-25 03:10:02.343010'),(27,'gestionar_usuarios','0002_alter_usuario_groups_alter_usuario_user_permissions','2024-08-25 03:10:02.362559'),(28,'gestionar_usuarios','0003_alter_usuario_usuario','2024-08-25 03:10:02.397673'),(29,'gestionar_ventas','0001_initial','2024-08-25 03:10:02.668266'),(30,'gestionar_ventas','0002_alter_venta_productos','2024-08-25 03:10:02.683062'),(31,'sessions','0001_initial','2024-08-25 03:10:02.722553');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('s12st30x65d0mc8w3qbwl3n9r23y8egp','.eJxVjEEOwiAQRe_C2pChCAMu3XuGZmBAqgaS0q6MdzckXej2v_f-W8y0b2Xee1rnhcVFKHH63QLFZ6oD8IPqvcnY6rYuQQ5FHrTLW-P0uh7u30GhXkadCQFc5oBTtqhROZc0Za8BiDCgV5MhMmzOmZ321gBi1GCtYmc5is8X4X83fw:1sfkH7:i_77aMqrSv-RnB2LWKTUPHXLJ8k0xdWUwvPtoQkcrZk','2024-09-01 18:05:09.909512');
+INSERT INTO `django_session` VALUES ('8niekc2okeb97rv4btmxvg8jf5vpcf6s','.eJxVjDsOwjAQBe_iGll45fWHkp4zWLv-4ACypTipEHcnkVJA-2bmvUWgdalhHXkOUxIX4cTpd2OKz9x2kB7U7l3G3pZ5Yrkr8qBD3nrKr-vh_h1UGnWrfbLslAIEFzMra7RnwgjFZOtN0WgcKKegaKXLJntLZBE02nwGZBSfL8lwNtU:1sibdn:YFZHzkXBdQz1a1CXj8Rc0yH5raEv1kCIexjDCu-xeBQ','2024-09-09 15:28:23.690195');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,8 +460,9 @@ CREATE TABLE `gestionar_usuarios_usuario` (
   `estado` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `correo` (`correo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `correo` (`correo`),
+  UNIQUE KEY `gestionar_usuarios_usuario_usuario_21f0589f_uniq` (`usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -470,7 +471,7 @@ CREATE TABLE `gestionar_usuarios_usuario` (
 
 LOCK TABLES `gestionar_usuarios_usuario` WRITE;
 /*!40000 ALTER TABLE `gestionar_usuarios_usuario` DISABLE KEYS */;
-INSERT INTO `gestionar_usuarios_usuario` VALUES (1,'pbkdf2_sha256$870000$DCyWkTM8cewR1MknCB2t5t$z7RizTw8ZXchffnKnqNzMVzQ+lP4hz75ALWHaahz4JE=','2024-08-18 18:05:09.902909',1,'123','','','braya2003h@gmail.com',1,1,'2024-08-18 16:18:36.766813',NULL,'','','','','','','','',1);
+INSERT INTO `gestionar_usuarios_usuario` VALUES (7,'pbkdf2_sha256$720000$YiGn1G0uDSzgLzhK2l8FsT$wVPtIhs2ssMwKVWZpsqfVuvaNcnkg4NEdoW0heCPqic=',NULL,0,'','','','',0,1,'2024-08-25 05:09:50.920475',NULL,'usuario','gsdg','fsadfg','CC','43214431234','3452352354','empleado','samsamanarecuperar@gmail.com',1),(8,'pbkdf2_sha256$720000$LLHMqwSt3A51iCNd7cxwwo$IC1QX9l5g9WHCJeX0B3t5s/hZk6qmjrNl2HY/GFbrAA=','2024-08-26 15:28:23.685654',1,'123','','','braya2003h@gmail.com',1,1,'2024-08-26 15:28:07.999430',NULL,'','','','','','','','',1);
 /*!40000 ALTER TABLE `gestionar_usuarios_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -601,4 +602,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-18 13:11:15
+-- Dump completed on 2024-08-26 10:28:57

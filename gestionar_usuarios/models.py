@@ -16,7 +16,7 @@ class Usuario(AbstractUser):
     ]
     
     reset_token = models.CharField(max_length=255, blank=True, null=True)
-    usuario = models.CharField(max_length=150)
+    usuario = models.CharField(max_length=150, unique=True)
     apellido = models.CharField(max_length=150)
     nombre = models.CharField(max_length=150)
     tipo_documento = models.CharField(max_length=2, choices=TIPO_DOCUMENTO_CHOICES)
